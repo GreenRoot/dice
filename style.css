@@ -1,0 +1,47 @@
+* {
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.dice-wrapper {
+    border: 1px solid gray;
+    width: 100%;
+    height: 100dvh;
+}
+
+.dice {
+    text-align: center;
+    font-size: 64px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.history {
+    width: 360px;
+    margin: 0 auto;
+    border: 1px solid deeppink;
+}
+.history__header {
+    display: flex;
+    height: 48px;
+}
+.step-number {
+    width: 60px;
+}
+.player {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid green;
+}
+.history__body {
+
+}
+.step {
+    height: 48px;
+    display: flex;
+}
