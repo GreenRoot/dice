@@ -1,5 +1,4 @@
 const steps = [{ dice_1: 0, dice_2: 0 }]
-const playersSteps = []
 
 const dices = document.querySelector('.dice-wrapper')
 const reset = document.querySelector('#reset')
@@ -37,8 +36,8 @@ back.addEventListener('click', () => {
 
 function diceAnimation() {
   const dices = document.querySelector('.dice-wrapper');
-  const totalSteps = 17;
-  const duration = 1000; // 2 seconds
+  const totalSteps = 17; // total number of rolls
+  const duration = 1000; // 1 second
 
   return new Promise((resolve) => {
     for (let i = 0; i < totalSteps; i++) {
