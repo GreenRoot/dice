@@ -1,0 +1,26 @@
+# dependencies directories
+/node_modules/
+
+# build output
+/dist/
+
+# environment config files
+.env
+
+# editor / IDE files
+/.idea/
+/.vscode/
+*.sublime-workspace
+*.code-workspace
+
+# log and database files
+*.log
+*.sqlite
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# xml
+*.xml
