@@ -1,52 +1,43 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Random Dice</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<main class="dice-wrapper">
+  </head>
+  <body>
+  <main class="dice-wrapper">
     <div class="dice">
-        1
+      0
     </div>
     <div class="dice">
-        1
+      0
     </div>
-</main>
-<footer class="history">
+  </main>
+  <footer class="history">
     <div class="history__header">
-        <div class="player-name">Батон</div>
-        <div class="player-name">Доброжир</div>
+      <div class="player-sum">0</div>
+      <div class="player-sum">0</div>
     </div>
     <ul class="history__body">
-        <li class="step">
-            <div class="player">
-                <div class="dice1">0</div>
-                <div class="dice2">0</div>
-            </div>
-            <div class="player">
-                <div class="dice1">0</div>
-                <div class="dice2">0</div>
-            </div>
-        </li>
-        <li class="step">
-            <div class="player">
-                <div class="dice1">0</div>
-                <div class="dice2">0</div>
-            </div>
-            <div class="player">
-                <div class="dice1">0</div>
-                <div class="dice2">0</div>
-            </div>
-        </li>
+      <li class="step">
+        <div class="player">
+          <div class="player__dice">0</div>
+          <div class="player__dice">0</div>
+        </div>
+        <div class="player">
+          <div class="player__dice">0</div>
+          <div class="player__dice">0</div>
+        </div>
+      </li>
     </ul>
-</footer>
-<button class="reset">Reset</button>
+  </footer>
+  <button id="back">Back</button>
+  <button id="reset">Reset</button>
 
-<script src="script.js"></script>
-</body>
+  <script src="script.js"></script>
+  </body>
 </html>

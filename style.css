@@ -5,12 +5,13 @@
 body {
     box-sizing: border-box;
     margin: 0;
+    user-select: none;
 }
 
 .dice-wrapper {
     border: 1px solid gray;
     width: 100%;
-    height: 100dvh;
+    height: 50dvh;
 }
 
 .dice {
@@ -20,8 +21,19 @@ body {
     user-select: none;
 }
 
-.history {
-    width: 360px;
-    margin: 0 auto;
-    border: 1px solid deeppink;
+.history__body {
+    display: flex;
+    list-style: revert;
+}
+.step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100px;
+    height: 50px;
+}
+.step div {
+    border: 1px solid black;
 }
