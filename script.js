@@ -65,6 +65,17 @@ function renderDices() {
   renderPlayersTotalPoints(steps)
   renderHistory(steps)
   const dices = document.querySelector('.dice-wrapper');
+  if (steps.at(-1).dice_1 === steps.at(-1).dice_2) {
+    dices.innerHTML = `
+    <div class="dice" style='color: #e2b714'>
+        ${steps.at(-1).dice_1}
+    </div>
+    <div class="dice" style='color: #e2b714'>
+        ${steps.at(-1).dice_2}
+    </div>
+  `
+    return
+  }
   dices.innerHTML = `
     <div class="dice">
         ${steps.at(-1).dice_1}
@@ -122,19 +133,36 @@ function renderHistory(stepsArray) {
   const historyBody = document.querySelector('.history__body');
   historyBody.innerHTML = '';
   for (let i = 0; i < playersSteps.length; i++) {
+    let player1Dice1 = playersSteps[i].player_1.dice_1;
+    let player1Dice2 = playersSteps[i].player_1.dice_2;
+    let player2Dice1 = playersSteps[i].player_2.dice_1;
+    let player2Dice2 = playersSteps[i].player_2.dice_2;
+    let player1DiceColor = '';
+    let player2DiceColor = '';
+
+    if (player1Dice1 === player1Dice2 && player1Dice1 !== 0) {
+      player1DiceColor = 'style="color: #e2b714;"';
+    }
+
+    if (player2Dice1 === player2Dice2 && player2Dice1 !== 0) {
+      player2DiceColor = 'style="color: #e2b714;"';
+    }
+
     historyBody.innerHTML += `
-      <li class="step">
-        <div class="player">
-          <div class="player__dice">${playersSteps[i].player_1.dice_1}</div>
-          <div class="player__dice">${playersSteps[i].player_1.dice_2}</div>
-        </div>
-        <div class="player">
-          <div class="player__dice">${playersSteps[i].player_2.dice_1}</div>
-          <div class="player__dice">${playersSteps[i].player_2.dice_2}</div>
-        </div>
-      </li>
-    `
+    <li class="step">
+      <div class="player">
+        <div ${player1DiceColor} class="player__dice">${player1Dice1}</div>
+        <div ${player1DiceColor} class="player__dice">${player1Dice2}</div>
+      </div>
+      <div class="player">
+        <div ${player2DiceColor} class="player__dice">${player2Dice1}</div>
+        <div ${player2DiceColor} class="player__dice">${player2Dice2}</div>
+      </div>
+    </li>
+  `
   }
+
+
 }
 
 function easeInQuad(t, b, c, d) {
