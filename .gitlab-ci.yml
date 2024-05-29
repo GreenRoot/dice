@@ -1,0 +1,25 @@
+stages:
+  - deploy
+
+variables:
+  BUCKET_NAME: ${BUCKET_NAME}
+  REGION: ${REGION}
+  YC_SERVICE_ACCOUNT_KEY_FILE: ${YC_SERVICE_ACCOUNT_KEY_FILE}
+  CLOUD_ID: ${CLOUD_ID}
+  FOLDER_ID: ${FOLDER_ID}
+
+before_script:
+  - apt-get update -y && apt-get install -y curl unzip
+  - curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+  - export PATH="$PATH:/root/yandex-cloud/bin"
+  - yc config set service-account-key $YC_SERVICE_ACCOUNT_KEY_FILE
+  - yc config set cloud-id $CLOUD_ID
+  - yc config set folder-id $FOLDER_ID
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to Yandex Cloud S3..."
+    - yc storage cp -r . s3://$BUCKET_NAME/
+  only:
+    - master
